@@ -28,9 +28,9 @@ def emo_evaluation(emotion,list_gold,list_prediction):
                 tp += 1
             else:
                 fp += 1
-    print (tp,fp,fn,tn)
+    #print (tp,fp,fn,tn)
     p = tp / (tp + fp)
-    print (p)
+    #print (p)
     r = tp / (tp + fn)
     accuracy = (tp + tn) / (tp + tn + fp + fn)
     f1_score = 2 * (p * r) / (p + r)

@@ -22,7 +22,7 @@ def emo_evaluation(emotion,list_gold,list_prediction):
         	tp += 1
         elif list_prediction[i] == emotion and list_gold[i] != emotion:
         	fp += 1
-        elif list_gold[i] == e and list_prediction[i] != e:
+        elif list_gold[i] == emotion and list_prediction[i] != emotion:
         	fn += 1
         else:
         	tn += 1

@@ -18,17 +18,16 @@ def emo_evaluation(emotion,list_gold,list_prediction):
     fn = 0
     tn = 0
     for i in range(len(list_gold)):
-        if list_gold[i] == emotion:
-            if emotion == list_prediction[i]:
-                tn += 1
-            else:
-                fn += 1
+        if list_gold[i] == list_prediction[i] and list_gold[i] == emotion:
+        	tp += 1
+        elif list_prediction[i] == emotion and list_gold[i] != emotion:
+        	fp += 1
+        elif list_gold[i] == e and list_prediction[i] != e:
+        	fn += 1
         else:
-            if emotion == list_prediction[i]:
-                tp += 1
-            else:
-                fp += 1
-    #print (tp,fp,fn,tn)
+        	tn += 1
+
+    print ('tp:%d, fp:%d, fn:%d, tn:%d' % (tp,fp,fn,tn))
     p = tp / (tp + fp)
     #print (p)
     r = tp / (tp + fn)

@@ -36,13 +36,16 @@ def emo_evaluation(emotion,list_gold,list_prediction):
     result = [p , r , accuracy ,f1_score]
     return result
 
-File_gold = open("dev.txt")
-File_prediction = open("dev-predicted.csv")
-Labels_gold = IO_function(File_gold)
-Labels_prediction = IO_function(File_prediction)
-emotions = get_emotions(Labels_gold)
-for emotion in emotions:
-    print (emotion)
-    p , r , accuarcy, f1_score =  emo_evaluation(emotion, Labels_gold , Labels_prediction)
-    print ("p",p,"r",r,"accuracy",accuarcy,"f1-score",f1_score)
+def main():
+    File_gold = open("dev.txt")
+    File_prediction = open("dev-predicted.csv")
+    Labels_gold = IO_function(File_gold)
+    Labels_prediction = IO_function(File_prediction)
+    emotions = get_emotions(Labels_gold)
+    for emotion in emotions:
+        print (emotion)
+        p , r , accuarcy, f1_score =  emo_evaluation(emotion, Labels_gold , Labels_prediction)
+        print ("p",p,"r",r,"accuracy",accuarcy,"f1-score",f1_score)
 
+if __name__ == "__main__":
+    main()
